@@ -1,4 +1,4 @@
 TARGETS := all
 
 $(TARGETS):
-	docker build -t yasker/kbench .
+	docker buildx --platform=linux/amd64,linux/arm64 -t giovannicandido/kbench .
