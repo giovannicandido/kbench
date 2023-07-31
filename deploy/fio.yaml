@@ -7,11 +7,12 @@ spec:
   #volumeMode: Block
   #storageClassName: longhorn  # replace with your storage class
   #storageClassName: local-path
+  # storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 33Gi
+      storage: 50Gi
 ---
 apiVersion: batch/v1
 kind: Job
@@ -25,7 +26,7 @@ spec:
     spec:
       containers:
       - name: kbench
-        image: ghcr.io/giovannicandido/kbench:latest
+        image: ghcr.io/giovannicandido/kbench:main
         imagePullPolicy: Always
         env:
         #- name: QUICK_MODE  # for debugging
